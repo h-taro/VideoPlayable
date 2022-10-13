@@ -10,4 +10,5 @@ import AVFoundation
 public protocol VideoPlayable: AnyObject {
     var player: AVPlayer { get }
     func onFinish()
+    func setPlayerItem(_ playerItem: AVPlayerItem)
 }
