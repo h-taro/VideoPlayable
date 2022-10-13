@@ -13,11 +13,11 @@ protocol VideoPlayViewDelegate: AnyObject {
     func onFinish()
 }
 
-class VideoPlayView: UIView {
+public class VideoPlayView: UIView {
     private var cancellables: Set<AnyCancellable> = []
     weak var delegate: VideoPlayViewDelegate?
     
-    override class var layerClass: AnyClass {
+    public override class var layerClass: AnyClass {
         AVPlayerLayer.self
     }
     
@@ -37,7 +37,7 @@ class VideoPlayView: UIView {
         }
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         playerLayer.frame = bounds
     }
