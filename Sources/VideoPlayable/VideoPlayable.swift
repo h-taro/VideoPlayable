@@ -10,5 +10,10 @@ import AVFoundation
 public protocol VideoPlayable: AnyObject {
     var player: AVPlayer { get }
     func onFinish()
-    func setPlayerItem(_ playerItem: AVPlayerItem)
+}
+
+extension VideoPlayable {
+    public func setPlayerItem(_ playerItem: AVPlayerItem) {
+        player.replaceCurrentItem(with: playerItem)
+    }
 }
