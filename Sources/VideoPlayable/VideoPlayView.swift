@@ -9,15 +9,15 @@ import AVFoundation
 import Combine
 import UIKit
 
-protocol VideoPlayViewDelegate: AnyObject {
+public protocol VideoPlayViewDelegate: AnyObject {
     func onFinish()
 }
 
-public class VideoPlayView: UIView {
+class VideoPlayView: UIView {
     private var cancellables: Set<AnyCancellable> = []
     weak var delegate: VideoPlayViewDelegate?
     
-    public override class var layerClass: AnyClass {
+    override class var layerClass: AnyClass {
         AVPlayerLayer.self
     }
     
@@ -25,7 +25,7 @@ public class VideoPlayView: UIView {
         layer as! AVPlayerLayer
     }
     
-    var player: AVPlayer? {
+    public var player: AVPlayer? {
         get {
             playerLayer.player
         }
@@ -37,7 +37,7 @@ public class VideoPlayView: UIView {
         }
     }
     
-    public override func layoutSubviews() {
+    override func layoutSubviews() {
         super.layoutSubviews()
         playerLayer.frame = bounds
     }
