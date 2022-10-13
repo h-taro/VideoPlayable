@@ -15,7 +15,7 @@ public protocol VideoPlayViewDelegate: AnyObject {
 
 public class VideoPlayView: UIView {
     private var cancellables: Set<AnyCancellable> = []
-    weak var delegate: VideoPlayViewDelegate?
+    public weak var delegate: VideoPlayViewDelegate?
     
     public override class var layerClass: AnyClass {
         AVPlayerLayer.self
