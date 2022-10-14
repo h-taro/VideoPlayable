@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "videoplayable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/h-taro/VideoPlayable",
+      "state" : {
+        "revision" : "cf88e57362a75da46719dbf9bb88872239864ec1",
+        "version" : "0.1.7"
+      }
+    }
+  ],
+  "version" : 2
+}
