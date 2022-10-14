@@ -80,7 +80,19 @@ extension HomeViewModel: VideoPlayable {
             }
             .store(in: &cancellables)
     }
-    
+}
+
+// MARK: - SEEKBAR
+extension HomeViewModel {
+    func onEditingChanged() {
+        Task {
+            player.pause()
+            
+            let time = CMTime(seconds: currentTime, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+            await player.seek(to: time, toleranceBefore: .zero, toleranceAfter: .zero)
+        }
+    }
+
     private func addPeriodicTimeObserver() {
         let interval = CMTime(seconds: 0.005, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
         

@@ -29,7 +29,7 @@ struct HomeView: View {
                 playButton
                 Spacer()
                 Slider(value: $viewModel.currentTime, in: .zero...viewModel.durationSeconds) { onEditingChanged in
-                    THLogger.debug(onEditingChanged)
+                    viewModel.onEditingChanged()
                 }
             }
             .padding(.horizontal)
