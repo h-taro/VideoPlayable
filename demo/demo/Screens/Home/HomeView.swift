@@ -5,6 +5,7 @@
 //  Created by 平石　太郎 on 2022/10/14.
 //
 
+import THLogger
 import VideoPlayable
 import SwiftUI
 
@@ -26,7 +27,12 @@ struct HomeView: View {
             
             HStack(alignment: .center, spacing: .zero) {
                 playButton
+                Spacer()
+                Slider(value: $viewModel.currentTime, in: .zero...viewModel.durationSeconds) { onEditingChanged in
+                    THLogger.debug(onEditingChanged)
+                }
             }
+            .padding(.horizontal)
         }
     }
     

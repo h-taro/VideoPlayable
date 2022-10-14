@@ -16,6 +16,7 @@
 		7672E0B428F95F6600FFE7B3 /* VideoPlayable in Frameworks */ = {isa = PBXBuildFile; productRef = 7672E0B328F95F6600FFE7B3 /* VideoPlayable */; };
 		7672E0B628F9602E00FFE7B3 /* video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 7672E0B528F9602E00FFE7B3 /* video.mp4 */; };
 		7672E0B928F9611D00FFE7B3 /* VideoPlayViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7672E0B828F9611D00FFE7B3 /* VideoPlayViewRepresentable.swift */; };
+		7672E0BC28F969F800FFE7B3 /* THLogger in Frameworks */ = {isa = PBXBuildFile; productRef = 7672E0BB28F969F800FFE7B3 /* THLogger */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7672E0BC28F969F800FFE7B3 /* THLogger in Frameworks */,
 				7672E0B428F95F6600FFE7B3 /* VideoPlayable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +133,7 @@
 			name = demo;
 			packageProductDependencies = (
 				7672E0B328F95F6600FFE7B3 /* VideoPlayable */,
+				7672E0BB28F969F800FFE7B3 /* THLogger */,
 			);
 			productName = demo;
 			productReference = 7672E09A28F95CC100FFE7B3 /* demo.app */;
@@ -162,6 +165,7 @@
 			mainGroup = 7672E09128F95CC100FFE7B3;
 			packageReferences = (
 				7672E0B228F95F6600FFE7B3 /* XCRemoteSwiftPackageReference "VideoPlayable" */,
+				7672E0BA28F969F800FFE7B3 /* XCRemoteSwiftPackageReference "THLogger" */,
 			);
 			productRefGroup = 7672E09B28F95CC100FFE7B3 /* Products */;
 			projectDirPath = "";
@@ -411,6 +415,14 @@
 				minimumVersion = 0.1.7;
 			};
 		};
+		7672E0BA28F969F800FFE7B3 /* XCRemoteSwiftPackageReference "THLogger" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/h-taro/THLogger";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -418,6 +430,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7672E0B228F95F6600FFE7B3 /* XCRemoteSwiftPackageReference "VideoPlayable" */;
 			productName = VideoPlayable;
+		};
+		7672E0BB28F969F800FFE7B3 /* THLogger */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7672E0BA28F969F800FFE7B3 /* XCRemoteSwiftPackageReference "THLogger" */;
+			productName = THLogger;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

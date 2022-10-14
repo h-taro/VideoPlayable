@@ -13,18 +13,25 @@ import Combine
 
 class HomeViewModel: ObservableObject {
     @Published var isPlaying = false
+    @Published var currentTime: Double = .zero
     
     private var cancellables: Set<AnyCancellable> = []
+    private var timeObserver: Any?
     
     private lazy var playerItem: AVPlayerItem = {
         let url = Bundle.main.url(forResource: "video", withExtension: "mp4")!
         return AVPlayerItem(url: url)
     }()
     
+    var durationSeconds: Double {
+        playerItem.asset.duration.seconds
+    }
+    
     let player = AVPlayer()
     
     init() {
         subscribeIsPlaying()
+        addPeriodicTimeObserver()
     }
     
     func onAppear() {
@@ -72,6 +79,21 @@ extension HomeViewModel: VideoPlayable {
                 }
             }
             .store(in: &cancellables)
+    }
+    
+    private func addPeriodicTimeObserver() {
+        let interval = CMTime(seconds: 0.005, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        
+        timeObserver = player.addPeriodicTimeObserver(
+            forInterval: interval,
+            queue: .global()
+        ) { [weak self] time in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.currentTime = time.seconds
+            }
+        }
     }
 }
 
